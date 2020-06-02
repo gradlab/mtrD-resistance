@@ -17,7 +17,7 @@ def read_distances(matrix_file):
         distances = defaultdict(dict)
         for i,line in enumerate(infile):
             if i == 0:
-                strains = line.strip().split()[1:]
+                strains = line.strip().split('\t')[1:]
             else:
                 line = line.strip().split()
                 distances[line[0]] = dict(zip(strains, [int(x) for x in line[1:]]))
@@ -28,7 +28,7 @@ def get_mtrD_strains(mtrD_file):
     mtrD_strains = {}
     with open(mtrD_file, "r") as infile:
         for line in infile:
-            line = line.strip().split()
+            line = line.strip().split('\t')
             mtrD_strains[line[0]] = line[1]
     return mtrD_strains
 
