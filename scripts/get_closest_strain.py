@@ -43,7 +43,7 @@ def get_azi(metadata_file):
 
 def find_closest(distances, mtrD_strains, azi_mic):
     """Finds closest strain that does not also have mtrD mutation and has azithromycin MIC"""
-    with open("paired_by_distance.txt", "w") as outfile:
+    with open("distances/paired_by_distance.txt", "w") as outfile:
         outfile.write("mtrD_strain\tmtrD_mutation\tmtrD_azi_mic\twt_strain\twt_azi_mic\tSNP_distance\n")
         for strain in distances:
             distance_dict = distances[strain]
