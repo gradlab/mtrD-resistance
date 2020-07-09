@@ -34,7 +34,7 @@ def get_mtrD_strains(mtrD_file):
             mtrD_strains[line[0]] = line[1]
     return mtrD_strains
 
-def get_azi(metadata_file, mic_column):
+def get_mic(metadata_file, mic_column):
     """Reads metadata file (specifically strain-table-filtered.csv)"""
     mic = {}
     with open(metadata_file, "r") as infile:
@@ -46,20 +46,20 @@ def get_azi(metadata_file, mic_column):
 def find_closest(distances, mtrD_strains, mic, antibiotic):
     """Finds closest strain that does not also have mtrD mutation and has azithromycin MIC"""
     with open(f"distances/paired_by_distance_{antibiotic}.txt", "w") as outfile:
-        outfile.write("mtrD_strain\tmtrD_mutation\tmtrD_azi_mic\twt_strain\twt_azi_mic\tSNP_distance\n")
+        outfile.write("mtrD_strain\tmtrD_mutation\tmtrD_mic\twt_strain\twt_mic\tSNP_distance\n")
         for strain in distances:
             distance_dict = distances[strain]
             found = False
             while found == False:
                 closest_strain = min(distance_dict, key=distance_dict.get)
                 try:
-                    if closest_strain not in mtrD_strains.keys() and azi_mic[closest_strain] not in ["NA", ""]:
+                    if closest_strain not in mtrD_strains.keys() and mic[closest_strain] not in ["NA", ""]:
                         found = True
                     else:
                         del distance_dict[closest_strain]
                 except KeyError:
                     del distance_dict[closest_strain]
-            outfile.write(f"{strain}\t{mtrD_strains[strain]}\t{azi_mic[strain]}\t{closest_strain}\t{azi_mic[closest_strain]}\t{distance_dict[closest_strain]}\n")
+            outfile.write(f"{strain}\t{mtrD_strains[strain]}\t{mic[strain]}\t{closest_strain}\t{mic[closest_strain]}\t{distance_dict[closest_strain]}\n")
 
 def main():
     args = get_args()
