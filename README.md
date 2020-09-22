@@ -1,5 +1,11 @@
-# mtrD-resistance
+# Code associated with "Efflux pump antibiotic binding site mutations are associated with azithromycin nonsusceptibility in clinical Neisseria gonorrhoeae isolates"
 
-Code to reproduce analyses in Ma and Mortimer et al., 2020 (["Efflux pump antibiotic binding site mutations are associated with azithromycin nonsusceptibility in clinical Neisseria gonorrhoeae isolates"](https://mbio.asm.org/content/mbio/11/4/e01509-20.full.pdf)) in mBio.
+Kevin C. Ma*, Tatum D. Mortimer*, Yonatan H. Grad
 
-The Jupyter notebook, which steps through all analyses, can be downloaded [here](https://github.com/gradlab/mtrD-resistance/blob/master/mtrD-resistance-notebook.ipynb).
+`*` denotes equal contribution
+
+[doi: 10.1128/mBio.01509-20](https://mbio.asm.org/content/mbio/11/4/e01509-20.full.pdf)
+
+Correspondence: kevinchenma@g.harvard.edu and mortimer@hsph.harvard.edu
+
+The Jupyter notebook, which steps through all analyses, can be [downloaded here](https://github.com/gradlab/mtrD-resistance/blob/master/mtrD-resistance-notebook.ipynb).
